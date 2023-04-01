@@ -10,7 +10,7 @@ export default function Maze() {
   const [ mazeData, mazeService ] = useMaze();
 
   function handleCreateMaze() {
-    mazeService.create([8, 8], [4, 0], [4, 7]);
+    mazeService.create([8, 8], [0, 0], [7, 7]);
   }
 
   return (

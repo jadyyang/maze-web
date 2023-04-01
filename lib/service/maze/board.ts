@@ -41,8 +41,11 @@ export default class Board {
     line.push([x, y]);
     let [ toX, toY ] = toPoint;
     while ( x !== toX || y !== toY) {
-      x = x === toX ? x : (x < toX ? (x + 1) : (x - 1));
-      y = y === toY ? y : (y < toY ? (y + 1) : (y - 1));
+      if (x !== toX) {
+        x = x < toX ? (x + 1) : (x - 1);
+      } else {
+        y = y < toY ? (y + 1) : (y - 1);
+      } 
       line.push([x, y]);
     }
 
