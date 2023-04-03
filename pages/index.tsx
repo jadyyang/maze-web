@@ -13,6 +13,10 @@ export default function Maze() {
     mazeService.create([8, 8], [0, 0], [7, 7]);
   }
 
+  function handleDrawBench() {
+    mazeService.drawBench?.();
+  }
+
   return (
     <Layout>
       <div className="my-10 grid w-full max-w-screen-xl animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
@@ -20,10 +24,16 @@ export default function Maze() {
           <MazeBoard data={mazeData} />
         </Widget>
         <Widget key="control" title="控制">
-          <button 
-            onClick={handleCreateMaze}
-            className="flex w-40 items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100"
-          >生成</button>
+          <div className="flex flex-col">
+            <button 
+              onClick={handleCreateMaze}
+              className="flex w-40 items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100"
+            >生成</button>
+            <button 
+              onClick={handleDrawBench}
+              className="flex w-40 items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100"
+            >随机拉丝</button>
+          </div>
         </Widget>
       </div>
     </Layout>

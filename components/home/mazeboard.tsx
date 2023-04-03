@@ -4,7 +4,7 @@ import { FenceData } from "@/lib/service/maze/board";
 
 
 const per_length = 30; // 单位长度
-const offset = 2;
+const offset = per_length + 2;
 
 
 export default function MazeBoard({
@@ -69,6 +69,25 @@ export default function MazeBoard({
         />);
       }
     }
+  }
+
+  const textOffset = offset - ((offset - 16 ) / 2);
+  for (let i = 0; i < data.length; i++) {
+    items.push(<text 
+      key={`y_${i}`}
+      x={0}
+      y={(i + 1) * per_length + textOffset}
+      // style="stroke:#006600;" 
+    >{i}</text>);
+  }
+
+  for (let i = 0; i < data[0].length; i++) {
+    items.push(<text 
+      key={`x_${i}`}
+      x={(i + 1) * per_length + textOffset}
+      y={textOffset}
+      // style="stroke:#006600;" 
+      >{i}</text>);
   }
 
   return (
